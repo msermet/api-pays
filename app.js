@@ -4,7 +4,7 @@ const fetchCountries = async () => {
         const countries = await response.json();
         let countriesList = document.querySelector('#card-pays');
         countriesList.innerHTML = countries
-            .map((country)=>`<div class="card col-6 m-2 me-3" style="width: 19rem;">
+            .map((country)=>`<div data-image="${country.flags.svg}" class="card col-6 m-2 me-3" style="width: 19rem;">
                                         <img src="${country.flags.svg}" class="card-img-top">
                                         <div class="card-body">
                                             <h5 class="card-title">${country.name.common}</h5>
@@ -18,10 +18,15 @@ const fetchCountries = async () => {
     }
 }
 
-fetchCountries()
-
 const countriesList = document.querySelector('#card-pays')
 const card = document.querySelector('#details-pays')
 countriesList.addEventListener("click",(e) => {
-    card.innerHTML = e.target.closest('.card').innerHTML
+    const cardDetails = document.querySelector('#card-details')
+    const target = e.target.closest('.card')
+    const img = document.querySelector('#img-detail')
+    const imgCountry = target.getAttribute('data-image')
+    img.src = imgCountry
 })
+
+// asynchrone
+fetchCountries()
