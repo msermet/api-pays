@@ -43,7 +43,6 @@ const fetchCountries = async () => {
                     flag: countryCard.getAttribute('data-flag')
                 };
 
-
                 const detailCardHtml = `
                     <div class="country-detail-card card shadow m-5 p-1">
                         <div class="row">
@@ -54,7 +53,6 @@ const fetchCountries = async () => {
                             <div class="col-8 pt-3">
                                 <h2 class="pb-3">${country.name}</h2>
                                 <h5 class="pb-3 fw-bold">À propos:</h5>      
-                                <p>${apropos.extract}</p>                          
                                 <div class="row">
                                     <div class="col-6">
                                         <p><strong>Capitale:</strong> ${country.capital}</p>
