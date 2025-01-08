@@ -18,15 +18,5 @@ const fetchCountries = async () => {
     }
 }
 
-const countriesList = document.querySelector('#card-pays')
-const card = document.querySelector('#details-pays')
-countriesList.addEventListener("click",(e) => {
-    const cardDetails = document.querySelector('#card-details')
-    const target = e.target.closest('.card')
-    const img = document.querySelector('#img-detail')
-    const imgCountry = target.getAttribute('data-image')
-    img.src = imgCountry
-})
 
-// asynchrone
 fetchCountries()
